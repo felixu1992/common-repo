@@ -5,10 +5,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.felixu</groupId>
-    <artifactId>common</artifactId>
+    <artifactId>felixu-common</artifactId>
     <version>1.0.0</version>
 
+    <properties>
+        <dozer.version>6.5.0</dozer.version>
+        <lombok.version>1.18.8</lombok.version>
+        <poi.version>4.0.1</poi.version>
+    </properties>
+
     <dependencies>
+        <!-- Dozer -->
+        <dependency>
+            <groupId>com.github.dozermapper</groupId>
+            <artifactId>dozer-core</artifactId>
+            <version>${dozer.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
