@@ -1,4 +1,4 @@
-package top.felixu.common.utils;
+package top.felixu.common.parameter;
 
 import java.util.Optional;
 
@@ -12,19 +12,20 @@ public class ValueUtils {
 
     /**
      * 用于处理可能为null的值，避免判断null，并设置默认值
-     * Java 8 以下
-     * if (null == value) {
-     *     return def;
-     * }
-     * return value;
+     *
      * @param value 待判断的值
      * @param def 默认值
      * @param <T> 范型对象
      * @return 返回对象值
-     * @since Java 8 +
      */
     public static <T> T nullAs(T value, T def) {
-        return Optional.ofNullable(value)
-                .orElse(def);
+        return Optional.ofNullable(value).orElse(def);
+    }
+
+    public static <T> T sameAs(T source, T same, T target) {
+        if (source.equals(same)) {
+            return target;
+        }
+        return source;
     }
 }

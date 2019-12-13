@@ -1,6 +1,4 @@
-package top.felixu.common.utils;
-
-import com.sun.istack.internal.NotNull;
+package top.felixu.common.date;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -89,7 +87,7 @@ public enum DateFormatUtils {
      * @param source 需要被格式化的时间
      * @return 当前时间格式化后的字符串
      */
-    public String format(@NotNull TemporalAccessor source) {
+    public String format(TemporalAccessor source) {
         return this.formatter.format(source);
     }
 

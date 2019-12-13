@@ -1,8 +1,11 @@
-package top.felixu.common.utils;
+package top.felixu.common.date;
 
-import com.sun.istack.internal.NotNull;
 
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.Date;
@@ -105,7 +108,7 @@ public class DateTimeUtils {
      * @return String
      * @see DateFormatUtils
      */
-    private static String format(@NotNull TemporalAccessor source, @NotNull String pattern) {
+    private static String format(TemporalAccessor source, String pattern) {
         return DateTimeFormatter.ofPattern(pattern).format(source);
     }
 
@@ -118,7 +121,7 @@ public class DateTimeUtils {
      * @return String
      * @see DateFormatUtils
      */
-    public static String format(@NotNull Date source, @NotNull String pattern) {
+    public static String format(Date source, String pattern) {
         return format(source.toInstant().atZone(ZoneId.systemDefault()), pattern);
     }
 }

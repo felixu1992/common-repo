@@ -1,4 +1,4 @@
-package top.felixu.common.func.func;
+package top.felixu.common.func;
 
 import java.util.function.Predicate;
 
