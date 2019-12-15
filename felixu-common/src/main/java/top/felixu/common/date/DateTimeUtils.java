@@ -124,4 +124,14 @@ public class DateTimeUtils {
     public static String format(Date source, String pattern) {
         return format(source.toInstant().atZone(ZoneId.systemDefault()), pattern);
     }
+
+    /**
+     * 将 LocalDateTime 转为 Long 类型的时间戳
+     *
+     * @param source 给定时间
+     * @return 毫秒值
+     */
+    private static Long toTimestamp(LocalDateTime source) {
+        return source.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
 }
