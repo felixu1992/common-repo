@@ -1,5 +1,7 @@
 package top.felixu.common.date;
 
+import lombok.Getter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -45,11 +47,13 @@ public enum DateFormatUtils {
     /**
      * 格式
      */
+    @Getter
     private String pattern;
 
     /**
      * 格式化解析器
      */
+    @Getter
     private DateTimeFormatter formatter;
 
     /**
@@ -60,15 +64,6 @@ public enum DateFormatUtils {
     DateFormatUtils(String pattern) {
         this.pattern = pattern;
         this.formatter = DateTimeFormatter.ofPattern(pattern);
-    }
-
-    /**
-     * 返回当前格式化的格式
-     *
-     * @return 格式
-     */
-    public String getPattern() {
-        return this.pattern;
     }
 
     /**

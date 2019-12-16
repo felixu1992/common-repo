@@ -1,6 +1,7 @@
 package top.felixu.common.date;
 
 
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -131,7 +132,18 @@ public class DateTimeUtils {
      * @param source 给定时间
      * @return 毫秒值
      */
-    private static Long toTimestamp(LocalDateTime source) {
+    public static Long toTimestamp(LocalDateTime source) {
         return source.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
+
+    /**
+     * 判断当前给定时间是否为周末
+     *
+     * @param source 给定时间
+     * @return 是否周末
+     */
+    public static boolean isWeekend(LocalDateTime source) {
+        return source.getDayOfWeek().equals(DayOfWeek.SATURDAY)
+                || source.getDayOfWeek().equals(DayOfWeek.SUNDAY);
     }
 }
