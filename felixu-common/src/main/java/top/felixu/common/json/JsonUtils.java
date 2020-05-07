@@ -16,7 +16,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.MonthDayDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.YearMonthDeserializer;
-import top.felixu.common.date.DateFormatUtils;
+import top.felixu.common.date.DateFormatter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -155,7 +155,7 @@ public class JsonUtils {
         mapper.setTimeZone(TimeZone.getDefault());
 
         // 设置格式化风格，该方法内部会禁用 WRITE_DATES_AS_TIMESTAMPS，从而使此格式仅对 Date(及其他旧的日期时间类)有影响
-        mapper.setDateFormat(new SimpleDateFormat(DateFormatUtils.FULL_DATE_SECONDS.getPattern()));
+        mapper.setDateFormat(new SimpleDateFormat(DateFormatter.FULL_DATE_SECONDS.getPattern()));
 
         // 注册要支持的第三方类库
         mapper.registerModule(new GuavaModule());
@@ -167,11 +167,11 @@ public class JsonUtils {
 
     public static void registerCustomModule(ObjectMapper mapper) {
         SimpleModule module = new SimpleModule();
-        module.addDeserializer(LocalDateTime.class, new CustomLocalDateTimeDeserializer(DateFormatUtils.FULL_DATE_SECONDS.getFormatter()));
-        module.addDeserializer(LocalDate.class, new CustomLocalDateDeserializer(DateFormatUtils.FULL_DATE.getFormatter()));
-        module.addDeserializer(LocalTime.class, new CustomLocalTimeDeserializer(DateFormatUtils.FULL_TIME.getFormatter()));
-        module.addDeserializer(YearMonth.class, new CustomYearMonthDeserializer(DateFormatUtils.CH_MONTH.getFormatter()));
-        module.addDeserializer(MonthDay.class, new CustomMonthDayDeserializer(DateFormatUtils.CH_MONTH_DATE.getFormatter()));
+        module.addDeserializer(LocalDateTime.class, new CustomLocalDateTimeDeserializer(DateFormatter.FULL_DATE_SECONDS.getFormatter()));
+        module.addDeserializer(LocalDate.class, new CustomLocalDateDeserializer(DateFormatter.FULL_DATE.getFormatter()));
+        module.addDeserializer(LocalTime.class, new CustomLocalTimeDeserializer(DateFormatter.FULL_TIME.getFormatter()));
+        module.addDeserializer(YearMonth.class, new CustomYearMonthDeserializer(DateFormatter.CH_MONTH.getFormatter()));
+        module.addDeserializer(MonthDay.class, new CustomMonthDayDeserializer(DateFormatter.CH_MONTH_DATE.getFormatter()));
         mapper.registerModule(module);
     }
 
