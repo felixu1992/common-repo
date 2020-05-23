@@ -16,7 +16,7 @@ import java.util.Date;
  * @author felixu
  * @date 2019.09.24
  */
-public enum DateFormatUtils {
+public enum DateFormatter {
 
     /**
      * 约定自定义pattern使用default
@@ -61,7 +61,7 @@ public enum DateFormatUtils {
      *
      * @param pattern 格式
      */
-    DateFormatUtils(String pattern) {
+    DateFormatter(String pattern) {
         this.pattern = pattern;
         this.formatter = DateTimeFormatter.ofPattern(pattern);
     }
