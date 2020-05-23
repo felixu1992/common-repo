@@ -142,7 +142,7 @@ public class DateTimeUtils {
      * @param source 给定时间
      * @return 是否周末
      */
-    public static boolean isWeekend(LocalDateTime source) {
+    public static boolean isWeekend(LocalDate source) {
         return source.getDayOfWeek().equals(DayOfWeek.SATURDAY)
                 || source.getDayOfWeek().equals(DayOfWeek.SUNDAY);
     }
