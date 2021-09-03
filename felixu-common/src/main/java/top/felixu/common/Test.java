@@ -15,7 +15,7 @@ public class Test {
         User target = new User();
         target.setAddress("火星");
         System.out.println(BeanUtils.mapNotNull(User.class, target, User.class));
-        BeanUtils.copyNotNull(User.class, source, User.class, target);
+        BeanUtils.copyNotEmpty(User.class, source, User.class, target);
         System.out.println(target);
     }
 
