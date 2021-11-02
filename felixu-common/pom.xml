@@ -6,7 +6,7 @@
 
     <groupId>top.felixu</groupId>
     <artifactId>felixu-common</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
         <dozer.version>6.5.0</dozer.version>
